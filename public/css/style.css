@@ -1,0 +1,26 @@
+:root{--bg:#08111f;--panel:#10192b;--line:#22304a;--text:#e7eefc;--muted:#97a8c4;--brand:#7c3aed;--brand2:#06b6d4}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:linear-gradient(180deg,#0d1629,#08111f);color:var(--text)}
+.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{padding:20px;border-right:1px solid var(--line);background:rgba(15,23,42,.85)}
+.logo{font-weight:800;font-size:1.2rem;margin-bottom:18px}
+.nav-btn{width:100%;margin:8px 0;padding:12px 14px;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:14px;cursor:pointer;text-align:left}
+.nav-btn.active,.nav-btn:hover{background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.25)}
+.main{padding:22px}
+.view{display:none}
+.view.active{display:block}
+.card{background:rgba(15,23,42,.86);border:1px solid var(--line);border-radius:18px;padding:16px}
+input,textarea,button{font:inherit}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1220;color:var(--text);margin:8px 0}
+textarea{min-height:100px;resize:vertical}
+button{padding:12px 14px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:700;cursor:pointer}
+.chat-layout{display:grid;grid-template-columns:280px 1fr;gap:16px}
+.dialogs{min-height:520px}
+.messages{min-height:420px;max-height:520px;overflow:auto;display:grid;gap:10px;margin-bottom:12px}
+.message{padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#0b1220}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted)}
+.toast-host{position:fixed;right:16px;bottom:16px;display:grid;gap:10px;z-index:9999}
+.toast{min-width:280px;max-width:360px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(15,23,42,.96);color:var(--text);box-shadow:0 18px 50px rgba(0,0,0,.28);animation:toastIn .22s ease}
+@keyframes toastIn{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media (max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:flex;gap:8px;overflow:auto}.nav-btn{min-width:160px}.chat-layout{grid-template-columns:1fr}}

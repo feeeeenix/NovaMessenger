@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NovaMessenger</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="toastHost" class="toast-host"></div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">NovaMessenger</div>
+      <button data-view="register" class="nav-btn active">Регистрация</button>
+      <button data-view="verify" class="nav-btn">Подтверждение кода</button>
+      <button data-view="login" class="nav-btn">Вход</button>
+      <button data-view="reset" class="nav-btn">Сброс пароля</button>
+      <button data-view="chat" class="nav-btn">Чат</button>
+      <button data-view="admin" class="nav-btn">Админка</button>
+    </aside>
+
+    <main class="main">
+      <section id="registerView" class="view active">
+        <h1>Регистрация</h1>
+        <form id="registerForm" class="card">
+          <input id="regName" placeholder="Имя" required />
+          <input id="regEmail" type="email" placeholder="Email" required />
+          <input id="regPassword" type="password" placeholder="Пароль" required />
+          <button type="submit">Отправить код</button>
+        </form>
+      </section>
+
+      <section id="verifyView" class="view">
+        <h1>Подтверждение почты</h1>
+        <form id="verifyForm" class="card">
+          <input id="verifyEmail" type="email" placeholder="Email" required />
+          <input id="verifyCode" placeholder="Код из письма" required />
+          <button type="submit">Подтвердить</button>
+        </form>
+      </section>
+
+      <section id="loginView" class="view">
+        <h1>Вход</h1>
+        <form id="loginForm" class="card">
+          <input id="loginEmail" type="email" placeholder="Email" required />
+          <input id="loginPassword" type="password" placeholder="Пароль" required />
+          <button type="submit">Войти</button>
+        </form>
+      </section>
+
+      <section id="resetView" class="view">
+        <h1>Сброс пароля</h1>
+        <div class="card">
+          <form id="resetForm">
+            <input id="resetEmail" type="email" placeholder="Email" required />
+            <button type="submit">Отправить код</button>
+          </form>
+          <hr style="border-color: var(--line); margin: 16px 0;">
+          <form id="newPassForm">
+            <input id="newPassEmail" type="email" placeholder="Email" required />
+            <input id="newPassCode" placeholder="Код из письма" required />
+            <input id="newPassPassword" type="password" placeholder="Новый пароль" required />
+            <button type="submit">Сохранить пароль</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="chatView" class="view">
+        <h1>Чат</h1>
+        <div class="chat-layout">
+          <div class="dialogs card" id="dialogs"></div>
+          <div class="chat-box card">
+            <div id="messages" class="messages"></div>
+            <form id="messageForm" class="message-form">
+              <textarea id="messageText" placeholder="Сообщение..."></textarea>
+              <div class="row">
+                <input id="fileInput" type="file" />
+                <button type="button" id="voiceBtn">🎤 Войс</button>
+                <button type="submit">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="adminView" class="view">
+        <h1>Админка</h1>
+        <div class="card" id="adminBox">Загрузка...</div>
+        <div class="card" id="notifyBox" style="margin-top:16px;">Уведомления</div>
+        <div class="card" id="presence" style="margin-top:16px;">Онлайн</div>
+      </section>
+    </main>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/reset.js"></script>
+</body>
+</html>
