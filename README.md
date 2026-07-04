@@ -15,8 +15,3 @@ npm start
 
 Скопируй `.env.example` в `.env` и заполни SMTP-данные.
 
-## Владелец
-
-По умолчанию:
-- email: `owner@novamessenger.app`
-- пароль: `123456`
